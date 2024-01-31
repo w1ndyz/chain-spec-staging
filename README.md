@@ -42,21 +42,21 @@ cargo build --release
 ## Run public testnet
 
 * Modify the genesis config in chain_spec.rs
-* Build spec, `./target/release/substrate-stencil build-spec --chain staging > stencil-staging.json`
-* Change original spec to encoded raw spec, `./target/release/substrate-stencil build-spec --chain=stencil-staging.json --raw > stencil-staging-raw.json`
+* Build spec, `./target/release/substrate-stencil build-spec --chain staging > ryan-staging.json`
+* Change original spec to encoded raw spec, `./target/release/substrate-stencil build-spec --chain=ryan-staging.json --raw > ryan-staging-raw.json`
 * Start your bootnodes, node key can be generate with command `./target/release/substrate-stencil key generate-node-key`.
   ```shell
   ./target/release/substrate-stencil \
        --node-key <your-node-key> \
        --base-path /tmp/bootnode1 \
-       --chain stencil-staging-raw.json \
+       --chain ryan-staging-raw.json \
        --name bootnode1
   ```
 * Start your initial validators,
   ```shell
   ./target/release/substrate-stencil \
       --base-path  /tmp/validator1 \
-      --chain   stencil-staging-raw.json \
+      --chain   ryan-staging-raw.json \
       --bootnodes  /ip4/<your-bootnode-ip>/tcp/30333/p2p/<your-bootnode-peerid> \
 	    --port 30336 \
 	    --ws-port 9947 \
